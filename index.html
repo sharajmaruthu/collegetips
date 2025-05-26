@@ -13,31 +13,199 @@
 
       body {
         font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        background: linear-gradient(
+          135deg,
+          #0f0f23 0%,
+          #1a1a2e 25%,
+          #16213e 50%,
+          #0f3460 75%,
+          #533483 100%
+        );
+        background-attachment: fixed;
         min-height: 100vh;
         color: #ffffff;
         overflow-x: hidden;
+        animation: gradientFlow 15s ease-in-out infinite;
+      }
+
+      @keyframes gradientFlow {
+        0%,
+        100% {
+          background: linear-gradient(
+            135deg,
+            #0f0f23 0%,
+            #1a1a2e 25%,
+            #16213e 50%,
+            #0f3460 75%,
+            #533483 100%
+          );
+        }
+        25% {
+          background: linear-gradient(
+            135deg,
+            #1a1a2e 0%,
+            #16213e 25%,
+            #0f3460 50%,
+            #533483 75%,
+            #0f0f23 100%
+          );
+        }
+        50% {
+          background: linear-gradient(
+            135deg,
+            #16213e 0%,
+            #0f3460 25%,
+            #533483 50%,
+            #0f0f23 75%,
+            #1a1a2e 100%
+          );
+        }
+        75% {
+          background: linear-gradient(
+            135deg,
+            #0f3460 0%,
+            #533483 25%,
+            #0f0f23 50%,
+            #1a1a2e 75%,
+            #16213e 100%
+          );
+        }
+      }
+
+      body::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(
+            circle at 20% 20%,
+            rgba(120, 119, 198, 0.1) 0%,
+            transparent 50%
+          ),
+          radial-gradient(
+            circle at 80% 80%,
+            rgba(255, 107, 107, 0.1) 0%,
+            transparent 50%
+          ),
+          radial-gradient(
+            circle at 40% 70%,
+            rgba(78, 205, 196, 0.1) 0%,
+            transparent 50%
+          );
+        pointer-events: none;
+        z-index: -1;
+        animation: pulseOverlay 8s ease-in-out infinite;
+      }
+
+      @keyframes pulseOverlay {
+        0%,
+        100% {
+          opacity: 0.3;
+        }
+        50% {
+          opacity: 0.6;
+        }
+      }
+
+      /* GitHub Floating Button */
+      .github-float {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        z-index: 999;
+        background: rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(15px);
+        border: 2px solid rgba(255, 255, 255, 0.3);
+        border-radius: 50px;
+        padding: 12px 20px;
+        color: white;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.9rem;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        transition: all 0.3s ease;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+      }
+
+      .github-float:hover {
+        transform: translateY(-3px);
+        background: rgba(255, 255, 255, 0.25);
+        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+        text-decoration: none;
+        color: white;
+        border-color: rgba(255, 255, 255, 0.5);
+      }
+
+      .github-float svg {
+        width: 20px;
+        height: 20px;
+        fill: currentColor;
+      }
+
+      .github-float:focus {
+        outline: 3px solid #4ecdc4;
+        outline-offset: 2px;
       }
 
       /* Header Section */
       .header {
         text-align: center;
-        padding: 60px 20px;
-        background: rgba(255, 255, 255, 0.1);
-        backdrop-filter: blur(10px);
-        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        padding: 80px 20px;
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(20px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        position: relative;
+      }
+
+      .header::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(
+          45deg,
+          transparent,
+          rgba(255, 255, 255, 0.02),
+          transparent
+        );
+        animation: shimmer 3s linear infinite;
+      }
+
+      @keyframes shimmer {
+        0% {
+          transform: translateX(-100%);
+        }
+        100% {
+          transform: translateX(100%);
+        }
       }
 
       .header h1 {
         font-size: clamp(2.5rem, 5vw, 4rem);
         font-weight: 900;
-        background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4);
-        background-size: 300% 300%;
+        background: linear-gradient(
+          45deg,
+          #ff6b6b,
+          #4ecdc4,
+          #45b7d1,
+          #96ceb4,
+          #ffecd2,
+          #fcb69f
+        );
+        background-size: 400% 400%;
         background-clip: text;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
-        animation: gradientShift 3s ease-in-out infinite;
+        animation: gradientShift 4s ease-in-out infinite;
         margin-bottom: 15px;
+        position: relative;
+        z-index: 1;
       }
 
       .header p {
@@ -46,6 +214,8 @@
         max-width: 600px;
         margin: 0 auto;
         line-height: 1.6;
+        position: relative;
+        z-index: 1;
       }
 
       @keyframes gradientShift {
@@ -64,35 +234,38 @@
         justify-content: center;
         flex-wrap: wrap;
         gap: 15px;
-        padding: 40px 20px;
-        background: rgba(255, 255, 255, 0.05);
+        padding: 50px 20px;
+        background: rgba(255, 255, 255, 0.03);
+        backdrop-filter: blur(10px);
       }
 
       .filter-btn {
         padding: 12px 24px;
-        background: rgba(255, 255, 255, 0.1);
-        border: 2px solid rgba(255, 255, 255, 0.3);
+        background: rgba(255, 255, 255, 0.08);
+        border: 2px solid rgba(255, 255, 255, 0.2);
         border-radius: 25px;
         color: white;
         cursor: pointer;
         transition: all 0.3s ease;
         font-weight: 600;
         font-size: 0.9rem;
-        backdrop-filter: blur(10px);
+        backdrop-filter: blur(15px);
         position: relative;
         overflow: hidden;
       }
 
       .filter-btn:hover {
         transform: translateY(-3px);
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-        background: rgba(255, 255, 255, 0.2);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+        background: rgba(255, 255, 255, 0.15);
+        border-color: rgba(255, 255, 255, 0.4);
       }
 
       .filter-btn.active {
         background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
         border-color: transparent;
         transform: scale(1.05);
+        box-shadow: 0 8px 25px rgba(255, 107, 107, 0.3);
       }
 
       .filter-btn::before {
@@ -115,6 +288,11 @@
         left: 100%;
       }
 
+      .filter-btn:focus {
+        outline: 3px solid #4ecdc4;
+        outline-offset: 2px;
+      }
+
       /* Gallery Container */
       .gallery-container {
         max-width: 1400px;
@@ -135,17 +313,18 @@
         border-radius: 20px;
         overflow: hidden;
         aspect-ratio: 1;
-        background: rgba(255, 255, 255, 0.1);
-        backdrop-filter: blur(10px);
-        border: 1px solid rgba(255, 255, 255, 0.2);
+        background: rgba(255, 255, 255, 0.08);
+        backdrop-filter: blur(15px);
+        border: 1px solid rgba(255, 255, 255, 0.15);
         cursor: pointer;
         transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
       }
 
       .gallery-item:hover {
         transform: translateY(-15px) rotateX(5deg);
-        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+        border-color: rgba(255, 255, 255, 0.3);
       }
 
       .gallery-item img {
@@ -159,6 +338,11 @@
         transform: scale(1.1);
       }
 
+      .gallery-item:focus {
+        outline: 3px solid #4ecdc4;
+        outline-offset: 2px;
+      }
+
       /* Overlay */
       .gallery-overlay {
         position: absolute;
@@ -168,8 +352,8 @@
         bottom: 0;
         background: linear-gradient(
           135deg,
-          rgba(102, 126, 234, 0.8),
-          rgba(118, 75, 162, 0.8)
+          rgba(15, 15, 35, 0.9),
+          rgba(83, 52, 131, 0.9)
         );
         opacity: 0;
         transition: all 0.3s ease;
@@ -225,10 +409,11 @@
       /* Footer */
       .footer {
         text-align: center;
-        padding: 40px 20px;
-        background: rgba(255, 255, 255, 0.05);
+        padding: 50px 20px;
+        background: rgba(255, 255, 255, 0.03);
         border-top: 1px solid rgba(255, 255, 255, 0.1);
         margin-top: 60px;
+        backdrop-filter: blur(10px);
       }
 
       .footer p {
@@ -247,8 +432,8 @@
         top: 0;
         width: 100%;
         height: 100%;
-        background: rgba(0, 0, 0, 0.9);
-        backdrop-filter: blur(10px);
+        background: rgba(0, 0, 0, 0.95);
+        backdrop-filter: blur(20px);
       }
 
       .modal-content {
@@ -337,12 +522,24 @@
         }
 
         .header {
-          padding: 40px 15px;
+          padding: 60px 15px;
         }
 
         .modal-content {
           width: 95%;
           max-height: 70%;
+        }
+
+        .github-float {
+          top: 15px;
+          right: 15px;
+          padding: 10px 16px;
+          font-size: 0.8rem;
+        }
+
+        .github-float svg {
+          width: 18px;
+          height: 18px;
         }
       }
 
@@ -359,17 +556,15 @@
         .filter-btn {
           padding: 8px 15px;
         }
-      }
 
-      /* Accessibility */
-      .gallery-item:focus {
-        outline: 3px solid #4ecdc4;
-        outline-offset: 2px;
-      }
+        .github-float span {
+          display: none;
+        }
 
-      .filter-btn:focus {
-        outline: 3px solid #ff6b6b;
-        outline-offset: 2px;
+        .github-float {
+          padding: 12px;
+          border-radius: 50%;
+        }
       }
 
       /* Performance optimizations */
@@ -429,6 +624,22 @@
     </style>
   </head>
   <body>
+    <!-- GitHub Floating Button -->
+    <a
+      href="https://github.com/yourusername/your-repo"
+      class="github-float"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Visit GitHub Repository"
+    >
+      <svg viewBox="0 0 24 24">
+        <path
+          d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
+        />
+      </svg>
+      <span>Visit Repo</span>
+    </a>
+
     <!-- Header Section -->
     <header class="header">
       <h1>CollegeTips Gallery</h1>
@@ -441,33 +652,33 @@
     <!-- Filter Navigation -->
     <nav class="filter-nav" role="navigation" aria-label="Gallery filter">
       <button class="filter-btn active" data-filter="all" aria-pressed="true">
-        All Moments ✨
+        All Moments
       </button>
       <button class="filter-btn" data-filter="team-vibes" aria-pressed="false">
-        Team Vibes 
+        Team Vibes
       </button>
       <button
         class="filter-btn"
         data-filter="creative-campaigns"
         aria-pressed="false"
       >
-        Creative Campaigns 
+        Creative Campaigns
       </button>
       <button class="filter-btn" data-filter="work-play" aria-pressed="false">
-        Work Hard, Play Hard 
+        Work Hard, Play Hard
       </button>
       <button
         class="filter-btn"
         data-filter="behind-scenes"
         aria-pressed="false"
       >
-        Behind-The-Scenes 
+        Behind-The-Scenes
       </button>
       <button class="filter-btn" data-filter="campus-life" aria-pressed="false">
-        Campus Life 
+        Campus Life
       </button>
       <button class="filter-btn" data-filter="about-us" aria-pressed="false">
-        About Us 
+        About Us
       </button>
     </nav>
 
@@ -493,9 +704,7 @@
 
     <!-- Footer -->
     <footer class="footer">
-      <p>
-        &copy; 2025 CollegeTips. Capturing moments, inspiring futures.
-      </p>
+      <p>&copy; 2025 CollegeTips. Capturing moments, inspiring futures.</p>
     </footer>
 
     <script>
@@ -513,20 +722,20 @@
           src: "https://github.com/sharajmaruthu/img/blob/main/teamvibes2.png?raw=true",
           category: "team-vibes",
           title: "Innovation Hub",
-       },
+        },
         {
           id: 3,
           src: "https://github.com/sharajmaruthu/img/blob/main/teamvibes3.jpg?raw=true",
           category: "team-vibes",
           title: "Morning Huddle",
-         },
+        },
         // Creative Campaigns
         {
           id: 4,
           src: "https://github.com/sharajmaruthu/img/blob/main/cr1.jpg?raw=true",
           category: "creative-campaigns",
           title: "Design Sprint Magic",
-      },
+        },
         {
           id: 5,
           src: "https://github.com/sharajmaruthu/img/blob/main/cr2.jpg?raw=true",
@@ -538,7 +747,7 @@
           src: "https://github.com/sharajmaruthu/img/blob/main/cr3.jpg?raw=true",
           category: "creative-campaigns",
           title: "Visual Storytelling",
-         },
+        },
         // Work Hard, Play Hard - 3 images
         {
           id: 7,
@@ -559,39 +768,39 @@
           src: "https://github.com/sharajmaruthu/img/blob/main/wh3.jpg?raw=true",
           category: "work-play",
           title: "Fun Friday Vibes",
-       },
+        },
         // Behind-The-Scenes - 3 images
         {
           id: 10,
           src: "https://github.com/sharajmaruthu/img/blob/main/bts1.png?raw=true",
           category: "behind-scenes",
           title: "Content Creation Process",
-      },
+        },
         {
           id: 11,
           src: "https://github.com/sharajmaruthu/img/blob/main/bts2.png?raw=true",
           category: "behind-scenes",
           title: "Planning Session",
-         },
+        },
         {
           id: 12,
           src: "https://github.com/sharajmaruthu/img/blob/main/bts3.png?raw=true",
           category: "behind-scenes",
           title: "Core team",
-       },
+        },
         // Campus Life - 3 images
         {
           id: 13,
           src: "https://github.com/sharajmaruthu/img/blob/main/campus1.png?raw=true",
           category: "campus-life",
           title: "Campus Workshop",
-       },
+        },
         {
           id: 14,
           src: "https://github.com/sharajmaruthu/img/blob/main/campus2.png?raw=true",
           category: "campus-life",
           title: "Student Presentation",
-       },
+        },
         {
           id: 15,
           src: "https://github.com/sharajmaruthu/img/blob/main/campus3.png?raw=true",
@@ -604,19 +813,19 @@
           src: "https://github.com/sharajmaruthu/img/blob/main/aboutus1.png?raw=true",
           category: "about-us",
           title: "We",
-       },
+        },
         {
           id: 17,
           src: "https://github.com/sharajmaruthu/img/blob/main/aboutus2.png?raw=true",
           category: "about-us",
           title: "Core Values",
-       },
+        },
         {
           id: 18,
           src: "https://github.com/sharajmaruthu/img/blob/main/aboutus3.png?raw=true",
           category: "about-us",
           title: "Contact Us",
-       },
+        },
       ];
 
       // Gallery functionality
