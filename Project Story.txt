@@ -1,0 +1,37 @@
+Design Story: The CollegeTips Gallery ✨
+
+Hey there! 👋
+
+So you wanna know about why the CollegeTips Gallery looks like a neon dream powered by good vibes and JavaScript magic? Buckle up, friend — it’s story time!
+
+🎨 Why These Colors?
+
+Imagine this: late night brainstorming, lofi beats playing, and I’m sipping on chai wondering, “What feels like college?” The answer? Chaos + creativity + caffeine = **Gradient Galore!**
+
+- 🌌 The deep purples and cosmic blues? That’s the mystery and ambition of student life.
+- 🌈 Those smooth transitions and gradients? Just like our college journey — dynamic, unpredictable, and surprisingly beautiful.
+- ✨ Sparkles and animations? Because *why not*! Life's too short for boring UIs.
+
+🧠 UX That Feels Like Fun
+
+- Filters? Because we’ve got *moments* and they deserve categories.
+- Emojis in buttons? Because this is not a boring corporate gallery. It’s 100% Gen Z certified.
+- Full-screen modal with confetti? You click a picture and boom, instant serotonin.
+
+🛠️ Built With:
+
+- HTML + CSS + JS: No frameworks, just raw creative energy.
+- Confetti from the JS Gods above (and some math).
+- Accessibility because we believe everyone should see the fun.
+
+💡 The Vibe?
+
+Think of this as a mix between a campus fest poster, your favorite photo dump, and a design student’s final year project (but, like, actually finished 😄).
+
+🤔Struggles I faced?
+Uhm to be honest nothing, Just chilling with Spotify but only thing i hated is *Spotify Ads*😭
+
+
+Built with ❤️, color palettes, and pixel-perfect passion by Sharaj MM
+
+Live Gallery : https://collegetipsintern.vercel.app/
